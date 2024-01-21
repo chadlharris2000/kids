@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>8-Bit Village</title>
+    <style>
+        canvas {
+            background-color: #87CEEB; /* Light blue background */
+            width: 100%;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="villageCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById('villageCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Character properties
+        let charX = 50, charY = 50, charSize = 20, charSpeed = 5;
+
+        // Village properties (simple colored rectangle for this example)
+        const villageWidth = canvas.width, villageHeight = canvas.height;
+
+        function draw() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw village
+            ctx.fillStyle = '#32CD32'; // Green color for village
+            ctx.fillRect(0, 0, villageWidth, villageHeight);
+
+            // Draw character
+            ctx.fillStyle = '#FFD700'; // Yellow color for character (placeholder for Link-like character)
+            ctx.fillRect(charX, charY, charSize, charSize);
+        }
+
+        function moveCharacter(event) {
+            switch (event.key) {
+                case 'w':
+                    charY -= charSpeed;
+                    break;
+                case 's':
+                    charY += charSpeed;
+                    break;
+                case 'a':
+                    charX -= charSpeed;
+                    break;
+                case 'd':
+                    charX += charSpeed;
+                    break;
+            }
+            // Prevent character from going out of bounds
+            charX = Math.max(0, Math.min(canvas.width - charSize, charX));
+            charY = Math.max(0, Math.min(canvas.height - charSize, charY));
+
+            draw(); // Redraw the scene with the character's new position
+        }
+
+        // Draw the initial scene
+        draw();
+
+        // Event listener for key presses
+        window.addEventListener('keydown', moveCharacter);
+    </script>
+</body>
+</html>

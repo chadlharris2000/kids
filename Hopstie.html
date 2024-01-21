@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hi Hoppners!</title>
+    <style>
+        .header {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .flash-button {
+            font-size: 20px;
+            color: green;
+            background-color: red;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">Hi Hoppners! I want to show you something</div>
+    <center>
+        <button class="flash-button" id="flashButton" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">Click ME</button>
+    </center>
+
+    <script>
+        var button = document.getElementById("flashButton");
+        var colors = ["red", "yellow"];
+        var currentColor = 0;
+        setInterval(function() {
+            button.style.backgroundColor = colors[currentColor];
+            currentColor = (currentColor + 1) % colors.length;
+        }, 500);
+    </script>
+
+</body>
+</html>

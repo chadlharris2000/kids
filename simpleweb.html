@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Web Page</title>
+    <style>
+        body {
+            text-align: center; /* Center align elements */
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .centered-button {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <button class="button centered-button" onclick="openNewTab()">Click Me</button>
+    <button class="button" onclick="openEmailClient()">Sign Up</button>
+
+    <script>
+        function openEmailClient() {
+            window.location.href = "mailto:chadlharris2000@gmail.com?subject=Sign Up&body=Hello, I would like to sign up.";
+        }
+
+        function openNewTab() {
+            window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+        }
+    </script>
+</body>
+</html>
